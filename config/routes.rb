@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resource :session
+  get "comments/index"
+  resource :session, only: %i[ new create destroy ]
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,5 +13,10 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "posts#index"
+
+  # CRUD routes for Posts
+  resources :posts
+
+  # CRUD routes for Comments
 end
