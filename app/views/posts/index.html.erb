@@ -1,4 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Welcome on computer forum!</h1>
+<h2>Place for everyone - from newcomers to computer geeks!</h2>
 
-<%= debug @users %>
+<div id="posts">
+    <% @posts.each do |post| %>
+        <div>
+            <h3><%= post.title %></h3>
+            <%= truncate(post.content, length: 150, separator: ' ') %>
+        </div>
+    <% end %>
+</div>
