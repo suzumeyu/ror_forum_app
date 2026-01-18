@@ -1,6 +1,8 @@
 <h1>Welcome on computer forum!</h1>
 <h2>Place for everyone - from newcomers to computer geeks!</h2>
 
+<%= link_to "New post", new_post_path if authenticated? %>
+
 <div id="posts">
     <% @posts.each do |post| %>
         <div>
