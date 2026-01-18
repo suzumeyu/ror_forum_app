@@ -1,9 +1,10 @@
-<h1>
-    <%= @post.title %>
-</h1>
+<h1><%= @post.title %></h1>
+<div>
+    <%= @post.content %>
+</div>
 
 <%= link_to "Back", posts_path %>
-<% if authenticated? %>
+<% if authenticated? && @post.user == Current.user %>
     <%= link_to "Edit", edit_post_path(@post) %>
     <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." } %>
 <% end %>

@@ -6,8 +6,11 @@
 <div id="posts">
     <% @posts.each do |post| %>
         <div>
-            <h3><%= post.title %></h3>
-            <%= truncate(post.content, length: 150, separator: ' ') %>
+            <a href="/posts/<%=post.id%>">
+                <h3><%= post.title %></h3>
+                <%# Limiting showing post content to only 150 characters - but if it will end in the middle of word, will show whole word %>
+                <%= truncate(post.content, length: 150, separator: ' ') %>
+            </a>
         </div>
     <% end %>
 </div>
