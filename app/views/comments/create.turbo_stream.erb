@@ -1,0 +1,7 @@
+<%= turbo_stream.append "comments" do %>
+  <%= render @comment %>
+<% end %>
+
+<%= turbo_stream.update "new_comment_frame" do %>
+  <%= render "comments/form", comment: Comment.new(post: @comment.post) %>
+<% end %>

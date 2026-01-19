@@ -1,0 +1,19 @@
+<%= form_with model: comment, local: false do |form| %>
+
+    <% if form.object.errors.any? %>
+        <p class="error">
+            <%= form.object.errors.full_messages.first %>
+        </p>
+    <% end %>
+
+    <%= form.hidden_field :post_id, value: comment.post&.id || params[:post_id] %>
+
+    <div>
+        <%= form.label :content %>
+        <%= form.text_field :content %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

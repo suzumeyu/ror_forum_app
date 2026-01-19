@@ -1,10 +1,45 @@
 <h1><%= @post.title %></h1>
 <div>
-    <%= @post.content %>
+  <%= @post.content %>
 </div>
 
 <%= link_to "Back", posts_path %>
 <% if authenticated? && @post.user == Current.user %>
-    <%= link_to "Edit", edit_post_path(@post) %>
-    <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." } %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." } %>
 <% end %>
+
+<h2>Comments (<%= @comments.count %>)</h2>
+
+<%# Kontener wszystkich komentarzy do Turbo Stream %>
+<turbo-frame id="comments">
+  <% @comments.each do |comment| %>
+    <turbo-frame id="comment_<%= comment.id %>">
+      <%= render comment %>
+    </turbo-frame>
+  <% end %>
+</turbo-frame>
+
+<% if authenticated? %>
+  <button id="show-comment-form">Add comment</button>
+
+  <%# Formularz dodawania komentarza inline %>
+  <turbo-frame id="new_comment_frame" style="display: none;">
+    <%= render "comments/form", comment: Comment.new(post: @post) %>
+  </turbo-frame>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("show-comment-form");
+    const frame = document.getElementById("new_comment_frame");
+
+    if(button && frame){
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        frame.style.display = "block";   // pokaż formularz
+        button.style.display = "none";    // ukryj przycisk
+      });
+    }
+  });
+</script>

@@ -1,0 +1,15 @@
+<turbo-frame id="comment_<%= comment.id %>">
+  <div class="comment">
+    <p>
+      <strong><%= comment.user.username %>:</strong>
+      <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+    </p>
+
+    <p><%= simple_format(comment.content) %></p>
+
+    <% if comment.user == Current.user %>
+      <%= link_to "Edit", edit_comment_path(comment), data: { turbo_frame: "comment_#{comment.id}" } %>
+      <%= button_to "Delete", comment, method: :delete, data: { turbo_confirm: "Are you sure?" }, form: { "data-turbo-frame": "comment_#{comment.id}" } %>
+    <% end %>
+  </div>
+</turbo-frame>
