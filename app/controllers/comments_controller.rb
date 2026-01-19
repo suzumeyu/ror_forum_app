@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def edit
     respond_to do |format|
-      format.turbo_stream { render partial: "comments/form", locals: { comment: @comment } }
+      format.turbo_stream
       format.html { redirect_to @comment.post }
     end
   end

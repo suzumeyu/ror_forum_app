@@ -4,7 +4,7 @@
     <p> No comments? Be the first one!</p>
 <% else %>
     <% comments.each do |comment| %>
-        <turbo-frame id="comment_<% comment.id %>">
+        <turbo-frame id="comment_<%= comment.id %>">
             <%= render comments %>
         </turbo-frame>
     <% end %>
