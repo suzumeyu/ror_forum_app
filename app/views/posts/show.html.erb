@@ -11,7 +11,6 @@
 
 <h2>Comments (<%= @comments.count %>)</h2>
 
-<%# Kontener wszystkich komentarzy do Turbo Stream %>
 <turbo-frame id="comments">
   <% @comments.each do |comment| %>
     <turbo-frame id="comment_<%= comment.id %>">
@@ -23,7 +22,6 @@
 <% if authenticated? %>
   <button id="show-comment-form">Add comment</button>
 
-  <%# Formularz dodawania komentarza inline %>
   <turbo-frame id="new_comment_frame" style="display: none;">
     <%= render "comments/form", comment: Comment.new(post: @post) %>
   </turbo-frame>
@@ -37,8 +35,8 @@
     if(button && frame){
       button.addEventListener("click", (e) => {
         e.preventDefault();
-        frame.style.display = "block";   // pokaż formularz
-        button.style.display = "none";    // ukryj przycisk
+        frame.style.display = "block";
+        button.style.display = "none";
       });
     }
   });

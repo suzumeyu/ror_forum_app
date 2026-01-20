@@ -20,20 +20,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.turbo_stream
-      format.html { redirect_to @comment.post }
-    end
   end
 
   def update
-    if @comment.update(comment_params)
-      respond_to do |format|
+    respond_to do |format|
+      if @comment.update(comment_params)
         format.turbo_stream
         format.html { redirect_to @comment.post }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
       end
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
