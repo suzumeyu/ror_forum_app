@@ -1,6 +1,7 @@
 <h1><%= @post.title %></h1>
 <div>
   <%= @post.content %>
+  <%= image_tag @post.image if @post.image.attached? %>
 </div>
 
 <%= link_to "Back", posts_path %>

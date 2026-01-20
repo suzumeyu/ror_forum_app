@@ -8,8 +8,7 @@
         <div>
             <a href="/posts/<%=post.id%>">
                 <h3><%= post.title %></h3>
-                <%# Limiting showing post content to only 150 characters - but if it will end in the middle of word, will show whole word %>
-                <%= truncate(post.content, length: 150, separator: ' ') %>
+                <%= post.content %>
             </a>
         </div>
     <% end %>

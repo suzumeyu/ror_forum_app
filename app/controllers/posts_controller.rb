@@ -51,6 +51,6 @@ class PostsController < ApplicationController
 
     # Function for checking if post we are trying to created meets our requirements before making query to database
     def post_params
-      params.expect(post: [:title, :content])
+      params.expect(post: [:title, :content, :image])
     end
 end
