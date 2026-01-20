@@ -7,7 +7,7 @@
 
     <p><%= simple_format(comment.content) %></p>
 
-    <% if comment.user == Current.user || Current.user.privileged_user? %>
+    <% if authenticated? && (comment.user == Current.user || Current.user.privileged_user?) %>
       <%= link_to "Edit", edit_comment_path(comment), data: { turbo_frame: "comment_#{comment.id}" } %>
       <%= button_to "Delete", comment, method: :delete, data: { turbo_confirm: "Are you sure?" }, form: { "data-turbo-frame": "comment_#{comment.id}" } %>
     <% end %>
