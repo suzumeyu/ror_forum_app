@@ -6,7 +6,7 @@
 </div>
 
 <%= link_to "Back", posts_path %>
-<% if authenticated? && @post.user == Current.user %>
+<% if authenticated? && (@post.user == Current.user || Current.user.privileged_user?) %>
   <%= link_to "Edit", edit_post_path(@post) %>
   <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." } %>
 <% end %>
