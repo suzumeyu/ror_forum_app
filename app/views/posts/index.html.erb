@@ -1,15 +1,53 @@
-<h1>Welcome on computer forum!</h1>
-<h2>Place for everyone - from newcomers to computer geeks!</h2>
+<section class="hero">
+    <h1>Welcome on our forum!</h1>
+</section>
 
-<%= link_to "New post", new_post_path if authenticated? %>
+<section class="content-grid">
+    <div class="posts-section">
+        <section class="discussions-header">
+            <h2>Discussions</h2>
 
-<div id="posts">
-    <% @posts.each do |post| %>
-        <div>
-            <a href="/posts/<%=post.id%>">
-                <h3><%= post.title %></h3>
-                <%= post.content %>
-            </a>
+            <% if authenticated? %>
+                <%= link_to "New post", new_post_path, class: "btn-primary" %>
+            <% end %>
+        </section>
+
+        <div class="post-list">
+            <% @posts.each do |post| %>
+                <div class="post-card">
+                    <div class="post-header">
+                        <a href="/posts/<%=post.id%>">
+                            <h3><%= post.title %></h3>
+                        </a>
+                    </div>
+
+                    <p class="post-meta">
+                        by <span class="author"><%= post.user.username %></span> - <%= time_ago_in_words(post.created_at) %> ago
+                    </p>
+
+                    <div class="post-footer">
+                        <span class="comments-count"> 
+                            &#128172; <%= post.comments.count %>
+                        </span>
+                    </div>
+                </div>
+            <% end %>
         </div>
-    <% end %>
-</div>
+    </div>
+
+    <aside class="stats">
+        <h3>Statistics</h3>
+
+        <ul>
+            <li> 
+                <strong><%= Post.count %></strong> posts
+            </li>
+            <li> 
+                <strong><%= User.count %></strong> users
+            </li>
+            <li>
+                <strong><%= Comment.count %></strong> comments
+            </li>
+        </ul>
+    </aside>
+</section>

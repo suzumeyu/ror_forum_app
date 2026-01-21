@@ -1,34 +1,61 @@
-<h1><%= @post.title %></h1>
-<section class="post">
-<div>
-  <%= @post.content %>
-  <%= image_tag @post.image if @post.image.attached? %>
+<div class="layout">
+  <div class="posts">
+    <article class="post-card post-show">
+      <h2><%= @post.title %></h2>
+      <p class="post-eta">
+        by <%= @post.user.username %> - <%= time_ago_in_words(@post.created_at) %> ago
+      </p>
+
+      <div class="post-content">
+        <%= @post.content %>
+        <%= image_tag @post.image if @post.image.attached? %>
+      </div>
+
+      <%= link_to "Back", posts_path %>
+
+      <% if authenticated? && (@post.user == Current.user || Current.user.privileged_user?) %>
+        <div class="post-actions">
+        <%= link_to "Edit", edit_post_path(@post), class: "btn-primary" %>
+        <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." }, class: "btn-primary" %>
+      <% end %>
+    </article>
+
+    <div class="section-divider"></div>
+
+      <article class="post-card comments-card">
+
+        <header class="comments-header">
+          <h3>
+            Comments 
+            <span class="comments-total">
+              (<%= @comments.count %>)
+            </span>
+          </h3>
+        </header>
+
+        <div class="comments-list">
+            <turbo-frame id="comments">
+              <% @comments.each do |comment| %>
+                <turbo-frame id="comment_<%= comment.id %>">
+                  <%= render comment %>
+                </turbo-frame>
+              <% end %>
+            </turbo-frame>
+        </div>
+
+          <% if authenticated? %>
+            <div class="comments-form">
+              <button id="show-comment-form", class="btn-primary">Add comment</button>
+
+              <turbo-frame id="new_comment_frame" style="display: none;">
+                <%= render "comments/form", comment: Comment.new(post: @post) %>
+              </turbo-frame>
+            </div>
+          <% end %>
+      </article>
+    </div>
+  </div>
 </div>
-
-<%= link_to "Back", posts_path %>
-<% if authenticated? && (@post.user == Current.user || Current.user.privileged_user?) %>
-  <%= link_to "Edit", edit_post_path(@post) %>
-  <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." } %>
-<% end %>
-</section>
-
-<h2>Comments (<%= @comments.count %>)</h2>
-
-<turbo-frame id="comments">
-  <% @comments.each do |comment| %>
-    <turbo-frame id="comment_<%= comment.id %>">
-      <%= render comment %>
-    </turbo-frame>
-  <% end %>
-</turbo-frame>
-
-<% if authenticated? %>
-  <button id="show-comment-form">Add comment</button>
-
-  <turbo-frame id="new_comment_frame" style="display: none;">
-    <%= render "comments/form", comment: Comment.new(post: @post) %>
-  </turbo-frame>
-<% end %>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

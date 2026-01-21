@@ -24,16 +24,24 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
-      <%= link_to "Log in", new_session_path unless authenticated? %>
-    </nav>
-    <main>
-      <%= yield %>
-    </main>
-    <footer>
-      <p>&copy; 2026 <a href="mailto:mwawryniuk01@gmail.com">mwawryniuk01@gmail.com</a>. All rights reserved.</p>
-    </footer>
+        <nav class="navbar">
+          <div class="navbar-left">
+            <%= link_to "Home", root_path, class: "btn-primary" %>
+          </div>
+          <div class="navbar-right">
+            <% if authenticated? %>
+              <span class="nav-hello">
+                Hello <strong><%= Current.user.username %></strong>!
+              </span>
+              <%= button_to "Log out", session_path, method: :delete, class: "btn-primary" %>
+            <% else %>
+              <%= link_to "Log in", new_session_path, class: "btn-primary" %>
+            <% end %>
+          </div>
+        </nav>
+
+      <main class="container">
+          <%= yield %>
+      </main>
   </body>
 </html>

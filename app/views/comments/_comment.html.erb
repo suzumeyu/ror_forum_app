@@ -1,15 +1,35 @@
 <turbo-frame id="comment_<%= comment.id %>">
-  <div class="comment">
-    <p>
-      <strong><%= comment.user.username %>:</strong>
-      <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-    </p>
 
-    <p><%= simple_format(comment.content) %></p>
+  <div class="comment-item">
 
-    <% if authenticated? && (comment.user == Current.user || Current.user.privileged_user?) %>
-      <%= link_to "Edit", edit_comment_path(comment), data: { turbo_frame: "comment_#{comment.id}" } %>
-      <%= button_to "Delete", comment, method: :delete, data: { turbo_confirm: "Are you sure?" }, form: { "data-turbo-frame": "comment_#{comment.id}" } %>
-    <% end %>
+    <div class="comment-body">
+
+      <div class="comment-header">
+
+        <div class="comment-meta">
+          <span class="comment-author">
+            <strong><%= comment.user.username %>:</strong>
+          </span>
+
+          <span class="comment-time">
+            <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+          </span>
+        </div>
+
+        <% if authenticated? && (comment.user == Current.user || Current.user.privileged_user?) %>
+          <div class="comment-actions">
+            <%= link_to "Edit", edit_comment_path(comment), data: { turbo_frame: "comment_#{comment.id}" }, class: "btn-edit" %>
+            <%= button_to "Delete", comment, method: :delete, data: { turbo_confirm: "Are you sure?" }, form: { "data-turbo-frame": "comment_#{comment.id}" }, class: "btn-delete" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="comment-text">
+        <%= simple_format(comment.content) %>
+      </div>
+
+    </div>
+
   </div>
+
 </turbo-frame>
