@@ -1,0 +1,94 @@
+/* ==========================
+   LOGOWANIE / REJESTRACJA
+   ========================== */
+
+.auth-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 4rem auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.auth-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.auth-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.auth-card input.form-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Przyciski logowania */
+.auth-card .btn-login {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-card .btn-login:hover {
+  background: #4f46e5;
+}
+
+/* Header Password z linkiem Forgot password w jednej linii */
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.password-header label {
+  margin-bottom: 0; /* usuwa domyślny margines */
+}
+
+.forgot-link {
+  font-size: 0.75rem;
+  text-decoration: underline;
+  color: #6366f1;
+}
+
+.forgot-link:hover {
+  color: #4f46e5;
+}
+
+/* Flash messages */
+.flash {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.flash-alert {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.flash-notice {
+  background: #d1fae5;
+  color: #065f46;
+}

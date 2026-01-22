@@ -1,0 +1,232 @@
+/* ==========================
+   POST + KOMENTARZE
+   ========================== */
+
+/* Post */
+.post-show {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.post-show h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.post-eta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  margin-top: 1.2rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Dolne przyciski posta */
+.post-show .post-actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+}
+
+.post-show .back-btn {
+  font-weight: 600;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.post-show .right-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-show .btn-edit {
+  background: #d0e5ff;
+  color: #1e40af;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.post-show .btn-edit:hover {
+  background: #1e40af;
+  color: #fff;
+}
+
+.post-show .btn-delete {
+  background: #ffd6d6;
+  color: #b91c1c;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.post-show .btn-delete:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+/* Divider między postem a komentarzami */
+.section-divider {
+  height: 1px;
+  background: #e6e6e6;
+  margin: 2.5rem 0;
+}
+
+/* Komentarze */
+.comments-card {
+  padding: 1.5rem;
+}
+
+/* Nagłówek komentarzy */
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
+  gap: 16px;
+}
+
+.comments-header h3 {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+/* Add comment button / placeholder */
+.comments-header .btn-primary {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.comments-header .btn-primary:hover {
+  background: #4f46e5;
+}
+
+.comments-header .btn-placeholder {
+  visibility: hidden;
+  width: 90px;
+  height: 32px;
+}
+
+/* Lista komentarzy */
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* odstęp między komentarzami */
+}
+
+.comment-item {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.comment-body {
+  background: #f9f9fb;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+/* Górna część komentarza: meta + akcje */
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.comment-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.comment-time {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.comment-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Akcje komentarza: Edit/Delete */
+.comment-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comment-actions .btn-edit {
+  background: #d0e5ff;
+  color: #1e40af;
+  border: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 0.8rem;
+}
+
+.comment-actions .btn-edit:hover {
+  background: #1e40af;
+  color: #fff;
+}
+
+.comment-actions .btn-delete {
+  background: #ffd6d6;
+  color: #b91c1c;
+  border: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+  font-size: 0.8rem;
+}
+
+.comment-actions .btn-delete:hover {
+  background: #b91c1c;
+  color: #fff;
+}

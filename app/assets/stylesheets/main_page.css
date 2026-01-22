@@ -1,0 +1,146 @@
+/* ==========================
+   STRONA GŁÓWNA - LISTA POSTÓW
+   ========================== */
+
+/* Hero */
+.hero {
+  margin-bottom: 32px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;                 /* grubszy pasek */
+  background: rgba(255, 255, 255, 0.9); /* prawie pełna biel */
+  margin-top: 24px;             /* odstęp od tekstu */
+  border-radius: 2px;           /* lekko zaokrąglony */
+}
+
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Grid layout: posty szersze, stats węższe */
+.content-grid {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start; /* wyrównanie do góry */
+}
+
+/* Sekcja postów */
+.posts-section {
+  flex: 3; /* posty szersze */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Discussions header */
+.discussions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* przycisk wyrównany do góry nagłówka */
+  margin: 0; /* usuń marginesy, żeby wyrównać górę z stats */
+  padding-bottom: 16px; /* odstęp od postów */
+}
+
+.discussions-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.discussions-header .btn-primary {
+  align-self: flex-start; /* przycisk na wysokości nagłówka */
+  margin: 0; /* usuń marginesy */
+}
+
+/* Post list */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.post-card h3 {
+  margin: 0 0 0.4rem;
+}
+
+.post-card h3 a {
+  text-decoration: none;
+  color: #111;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Stats aside + przycisk New post */
+.stats-wrapper {
+  flex: 1; /* węższa kolumna */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* odstęp między przyciskiem a tabelą */
+  margin-top: 0; /* usuń dodatkowe przesunięcia */
+}
+
+.stats-wrapper .btn-primary {
+  width: 100%; /* przycisk zajmuje całą szerokość wrappera */
+  text-align: center;
+  margin-bottom: 8px; /* odstęp nad tabelą */
+  align-self: flex-start; /* wyrównanie do góry */
+}
+
+/* Stats aside: tabela */
+.stats {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  height: fit-content;
+  font-size: 1rem; /* większa czcionka */
+  width: 100%; /* dopasowanie do wrappera */
+  box-sizing: border-box;
+}
+
+.stats h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.stats ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.stats li {
+  margin-bottom: 12px;
+}
+
+/* Placeholder dla przycisku, aby nie zmienił układu */
+.btn-placeholder {
+  display: inline-block;
+  width: 120px; /* szerokość przycisku New post */
+  height: 44px; /* wysokość przycisku */
+}

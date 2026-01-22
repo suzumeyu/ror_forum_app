@@ -1,0 +1,85 @@
+/* Formularz w stylu post-card */
+.post-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Grupowanie pól formularza */
+.post-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Dolne przyciski i Attach Image w jednym rzędzie */
+.post-form .form-actions {
+  display: flex;
+  justify-content: space-between; /* lewa: attach, prawa: create/cancel */
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Kontener prawych przycisków */
+.post-form .form-actions .right-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Create / Update button - zielony */
+.btn-create {
+  background: #34d399;
+  color: #065f46;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-create:hover {
+  background: #065f46;
+  color: #fff;
+}
+
+/* Cancel button - czerwony */
+.btn-cancel {
+  background: #fca5a5;
+  color: #b91c1c;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+/* File attach button - niebieski */
+.btn-attach-image {
+  background: #d0e5ff;
+  color: #1e40af;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-attach-image:hover {
+  background: #1e40af;
+  color: #fff;
+}

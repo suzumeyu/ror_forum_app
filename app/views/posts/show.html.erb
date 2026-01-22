@@ -1,5 +1,7 @@
 <div class="layout">
   <div class="posts">
+
+    <!-- POST -->
     <article class="post-card post-show">
       <h2><%= @post.title %></h2>
       <p class="post-eta">
@@ -11,62 +13,79 @@
         <%= image_tag @post.image if @post.image.attached? %>
       </div>
 
-      <%= link_to "Back", posts_path %>
+      <div class="post-actions-container">
+        <%= link_to "Back", posts_path, class: "back-btn" %>
 
-      <% if authenticated? && (@post.user == Current.user || Current.user.privileged_user?) %>
-        <div class="post-actions">
-        <%= link_to "Edit", edit_post_path(@post), class: "btn-primary" %>
-        <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure? This action cannot be undone." }, class: "btn-primary" %>
-      <% end %>
+        <% if authenticated? && (@post.user == Current.user || Current.user.privileged_user?) %>
+          <div class="right-buttons">
+            <%= link_to "Edit", edit_post_path(@post), class: "btn-edit" %>
+            <%= button_to "Delete", @post, method: :delete,
+                  data: { turbo_confirm: "Are you sure? This action cannot be undone." },
+                  class: "btn-delete" %>
+          </div>
+        <% end %>
+      </div>
     </article>
 
     <div class="section-divider"></div>
 
-      <article class="post-card comments-card">
+    <!-- KOMENTARZE -->
+    <article class="post-card comments-card">
+      <header class="comments-header">
+        <h3>
+          Comments
+          <span class="comments-total">(<%= @comments.count %>)</span>
+        </h3>
 
-        <header class="comments-header">
-          <h3>
-            Comments 
-            <span class="comments-total">
-              (<%= @comments.count %>)
-            </span>
-          </h3>
-        </header>
+        <% if authenticated? %>
+          <button id="show-comment-form" class="btn-primary">Add comment</button>
+        <% else %>
+          <span class="btn-placeholder"></span>
+        <% end %>
+      </header>
 
-        <div class="comments-list">
-            <turbo-frame id="comments">
-              <% @comments.each do |comment| %>
-                <turbo-frame id="comment_<%= comment.id %>">
-                  <%= render comment %>
-                </turbo-frame>
-              <% end %>
+      <!-- LISTA KOMENTARZY -->
+      <div class="comments-list">
+        <turbo-frame id="comments">
+          <% @comments.each do |comment| %>
+            <turbo-frame id="comment_<%= comment.id %>">
+              <%= render comment %>
             </turbo-frame>
-        </div>
-
-          <% if authenticated? %>
-            <div class="comments-form">
-              <button id="show-comment-form", class="btn-primary">Add comment</button>
-
-              <turbo-frame id="new_comment_frame" style="display: none;">
-                <%= render "comments/form", comment: Comment.new(post: @post) %>
-              </turbo-frame>
-            </div>
           <% end %>
-      </article>
-    </div>
+        </turbo-frame>
+      </div>
+
+      <!-- FORMULARZ NOWEGO KOMENTARZA -->
+      <% if authenticated? %>
+        <turbo-frame id="new_comment_frame" style="display: none;">
+          <%= render "comments/form", comment: Comment.new(post: @post) %>
+        </turbo-frame>
+      <% end %>
+    </article>
+
   </div>
 </div>
 
+<!-- JS do pokazywania/ukrywania formularza komentarza -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("show-comment-form");
-    const frame = document.getElementById("new_comment_frame");
+    const showBtn = document.getElementById("show-comment-form");
+    const commentFrame = document.getElementById("new_comment_frame");
 
-    if(button && frame){
-      button.addEventListener("click", (e) => {
+    if(showBtn && commentFrame){
+      showBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        frame.style.display = "block";
-        button.style.display = "none";
+        commentFrame.style.display = "block";
+        showBtn.style.display = "none";
+      });
+    }
+
+    const cancelBtn = document.getElementById("cancel-comment-btn");
+    if(cancelBtn && commentFrame && showBtn){
+      cancelBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        commentFrame.style.display = "none";
+        showBtn.style.display = "inline-block";
       });
     }
   });

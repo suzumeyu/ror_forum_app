@@ -1,0 +1,58 @@
+/* ==========================
+   NAVBAR
+   ========================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-hello {
+  color: #4b5563;
+}
+
+.nav-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2937;
+}
+
+/* BUTTON FIX dla Navbar - ujednolicenie link_to i button_to */
+.navbar .btn-primary,
+.navbar button.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  width: 6rem;
+}
+
+.navbar .btn-primary:hover,
+.navbar button.btn-primary:hover {
+  background: #4f46e5;
+}
+
+.navbar form {
+  display: inline-block;
+  margin: 0;
+}

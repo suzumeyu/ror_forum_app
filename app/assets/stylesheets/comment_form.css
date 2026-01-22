@@ -1,0 +1,66 @@
+/* Formularz edycji komentarza */
+.comment-form {
+  background: #f9f9fb;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Grupy pól formularza */
+.comment-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Dolne przyciski: Update / Cancel po lewej */
+.comment-form .form-actions {
+  display: flex;
+  justify-content: flex-start; /* przyciski po lewej */
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Update Comment button - zielony */
+.btn-update-comment {
+  background: #34d399; /* jasna zieleń */
+  color: #065f46;       /* ciemniejsza zieleń */
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.btn-update-comment:hover {
+  background: #065f46; 
+  color: #fff;
+}
+
+/* Cancel button - czerwony */
+.btn-cancel-comment {
+  background: #fca5a5; /* jasny czerwony */
+  color: #b91c1c;       /* ciemniejszy czerwony */
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancel-comment:hover {
+  background: #b91c1c; 
+  color: #fff;
+}

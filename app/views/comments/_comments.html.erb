@@ -1,9 +1,13 @@
-<h3>Comments (<%= comments.count %>)</h3>
+<h3 class="comments-title">
+  Comments (<%= comments.count %>)
+</h3>
 
 <% if comments.empty? %>
-    <p> No comments? Be the first one!</p>
+  <p class="no-comments">No comments? Be the first one!</p>
 <% else %>
+  <div class="comments-list">
     <% comments.each do |comment| %>
-        <%= render comment %>
+      <%= render comment %>
     <% end %>
+  </div>
 <% end %>

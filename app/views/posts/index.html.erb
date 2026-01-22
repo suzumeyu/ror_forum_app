@@ -1,15 +1,11 @@
 <section class="hero">
-    <h1>Welcome on our forum!</h1>
+    <h1>Welcome to TechTalk - A place for Everyone, From Newbies to Geeks</h1>
 </section>
 
 <section class="content-grid">
     <div class="posts-section">
         <section class="discussions-header">
             <h2>Discussions</h2>
-
-            <% if authenticated? %>
-                <%= link_to "New post", new_post_path, class: "btn-primary" %>
-            <% end %>
         </section>
 
         <div class="post-list">
@@ -35,19 +31,26 @@
         </div>
     </div>
 
-    <aside class="stats">
-        <h3>Statistics</h3>
+    <div class="stats-wrapper">
+        <% if authenticated? %>
+            <%= link_to "New post", new_post_path, class: "btn-primary" %>
+        <% else %>
+            <span class="btn-placeholder"></span>
+        <% end %>
+        <aside class="stats">
+            <h3>Statistics</h3>
 
-        <ul>
-            <li> 
-                <strong><%= Post.count %></strong> posts
-            </li>
-            <li> 
-                <strong><%= User.count %></strong> users
-            </li>
-            <li>
-                <strong><%= Comment.count %></strong> comments
-            </li>
-        </ul>
-    </aside>
+            <ul>
+                <li> 
+                    <strong><%= Post.count %></strong> posts
+                </li>
+                <li> 
+                    <strong><%= User.count %></strong> users
+                </li>
+                <li>
+                    <strong><%= Comment.count %></strong> comments
+                </li>
+            </ul>
+        </aside>
+    </div>
 </section>
