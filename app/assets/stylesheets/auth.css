@@ -1,6 +1,4 @@
-/* ==========================
-   LOGOWANIE / REJESTRACJA
-   ========================== */
+/* Styles for login page */
 
 .auth-card {
   background: #fff;
@@ -35,7 +33,7 @@
   font-size: 0.9rem;
 }
 
-/* Przyciski logowania */
+/* Login buttons */
 .auth-card .btn-login {
   width: 100%;
   padding: 0.6rem;
@@ -53,7 +51,7 @@
   background: #4f46e5;
 }
 
-/* Header Password z linkiem Forgot password w jednej linii */
+/* Header Password with forgot password link in one line */
 .password-header {
   display: flex;
   justify-content: space-between;
@@ -62,7 +60,7 @@
 }
 
 .password-header label {
-  margin-bottom: 0; /* usuwa domyślny margines */
+  margin-bottom: 0;
 }
 
 .forgot-link {

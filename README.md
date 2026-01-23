@@ -1,4 +1,4 @@
-# Tech Forum – Ruby on Rails Application
+# TechTalk Forum – Ruby on Rails Application
 
 A simple and modern discussion forum built with **Ruby on Rails**.  
 The application allows users to create posts, comment on discussions, and manage content based on permissions.
@@ -6,6 +6,11 @@ The application allows users to create posts, comment on discussions, and manage
 The project was created as a learning and portfolio project.
 
 ---
+
+## Requirements
+
+- Rails 8.1.2
+- Ruby 3.2.3
 
 ## Features
 
@@ -20,7 +25,7 @@ The project was created as a learning and portfolio project.
 
 ---
 
-## 🖼 Screenshots
+## Screenshots
 
 ### Homepage – Posts List
 ![Homepage](app/assets/images/screenshots/main-page.png)

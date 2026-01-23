@@ -3,13 +3,16 @@
 </section>
 
 <section class="content-grid">
+
     <div class="posts-section">
+
         <section class="discussions-header">
             <h2>Discussions</h2>
         </section>
 
         <div class="post-list">
             <% @posts.each do |post| %>
+
                 <div class="post-card">
                     <div class="post-header">
                         <a href="/posts/<%=post.id%>">
@@ -27,16 +30,20 @@
                         </span>
                     </div>
                 </div>
+                
             <% end %>
         </div>
+
     </div>
 
     <div class="stats-wrapper">
+
         <% if authenticated? %>
             <%= link_to "New post", new_post_path, class: "btn-primary" %>
         <% else %>
             <span class="btn-placeholder"></span>
         <% end %>
+
         <aside class="stats">
             <h3>Statistics</h3>
 
@@ -52,5 +59,7 @@
                 </li>
             </ul>
         </aside>
+
     </div>
+
 </section>

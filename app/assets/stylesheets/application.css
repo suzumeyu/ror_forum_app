@@ -1,9 +1,4 @@
-/* ==========================
-   WSPÓLNE STYLE DLA WSZYSTKICH STRON
-   ========================== */
-
-/* RESET */
-* {
+{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,7 +10,7 @@ body {
   color: #1f2937;
 }
 
-/* BUTTONS - WSPÓLNE */
+/* Button styles for all sites  */
 .btn-primary {
   background: #6366f1;
   color: white;
@@ -44,7 +39,7 @@ body {
   cursor: pointer;
 }
 
-/* MAIN CONTAINER - WSPÓLNE */
+/* Main container */
 .container {
   max-width: 1200px;
   margin: 0 auto;

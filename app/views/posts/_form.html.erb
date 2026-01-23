@@ -17,10 +17,8 @@
   </div>
 
   <div class="form-actions">
-    <!-- Left site: Attach Image -->
     <%= form.file_field :image, accept: "image/*", class: "btn-attach-image" %>
 
-    <!-- Right site: Create / Cancel -->
     <div class="right-buttons">
       <%= form.submit post.new_record? ? "Create" : "Update", class: "btn-create" %>
       <%= link_to "Cancel", posts_path, class: "btn-cancel", role: "button" %>

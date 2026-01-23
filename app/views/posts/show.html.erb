@@ -1,7 +1,9 @@
 <div class="layout">
+
   <div class="posts">
 
     <article class="post-card post-show">
+
       <h2><%= @post.title %></h2>
       <p class="post-eta">
         by <%= @post.user.username %> - <%= time_ago_in_words(@post.created_at) %> ago
@@ -24,11 +26,13 @@
           </div>
         <% end %>
       </div>
+
     </article>
 
     <div class="section-divider"></div>
 
     <article class="post-card comments-card">
+    
       <header class="comments-header">
         <h3>
           Comments
@@ -57,9 +61,11 @@
           <%= render "comments/form", comment: Comment.new(post: @post) %>
         </turbo-frame>
       <% end %>
+
     </article>
 
   </div>
+
 </div>
 
 <script>

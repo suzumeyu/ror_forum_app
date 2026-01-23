@@ -1,4 +1,4 @@
-/* Formularz w stylu post-card */
+/* Form in post-card style */
 .post-form {
   background: #fff;
   border-radius: 12px;
@@ -10,29 +10,27 @@
   position: relative;
 }
 
-/* Grupowanie pól formularza */
 .post-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-/* Dolne przyciski i Attach Image w jednym rzędzie */
+/* Bottom buttons and Attach Image in one line */
 .post-form .form-actions {
   display: flex;
-  justify-content: space-between; /* lewa: attach, prawa: create/cancel */
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
 }
 
-/* Kontener prawych przycisków */
 .post-form .form-actions .right-buttons {
   display: flex;
   gap: 0.5rem;
 }
 
-/* Create / Update button - zielony */
+/* Create / Update button */
 .btn-create {
   background: #34d399;
   color: #065f46;
@@ -49,7 +47,7 @@
   color: #fff;
 }
 
-/* Cancel button - czerwony */
+/* Cancel button */
 .btn-cancel {
   background: #fca5a5;
   color: #b91c1c;
@@ -67,7 +65,7 @@
   color: #fff;
 }
 
-/* File attach button - niebieski */
+/* File attach button */
 .btn-attach-image {
   background: #d0e5ff;
   color: #1e40af;
