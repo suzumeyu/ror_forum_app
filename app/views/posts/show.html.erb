@@ -1,7 +1,6 @@
 <div class="layout">
   <div class="posts">
 
-    <!-- POST -->
     <article class="post-card post-show">
       <h2><%= @post.title %></h2>
       <p class="post-eta">
@@ -29,7 +28,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- KOMENTARZE -->
     <article class="post-card comments-card">
       <header class="comments-header">
         <h3>
@@ -44,7 +42,6 @@
         <% end %>
       </header>
 
-      <!-- LISTA KOMENTARZY -->
       <div class="comments-list">
         <turbo-frame id="comments">
           <% @comments.each do |comment| %>
@@ -55,9 +52,8 @@
         </turbo-frame>
       </div>
 
-      <!-- FORMULARZ NOWEGO KOMENTARZA -->
       <% if authenticated? %>
-        <turbo-frame id="new_comment_frame" style="display: none;">
+        <turbo-frame id="new_comment_frame">
           <%= render "comments/form", comment: Comment.new(post: @post) %>
         </turbo-frame>
       <% end %>
@@ -66,7 +62,6 @@
   </div>
 </div>
 
-<!-- JS do pokazywania/ukrywania formularza komentarza -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const showBtn = document.getElementById("show-comment-form");

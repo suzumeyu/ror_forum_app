@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-actions">
-    <%= form.submit "Update Comment", class: "btn-update-comment" %>
+    <%= form.submit comment.new_record? ? "Create" : "Update", class: "btn-update-comment" %>
     <%= link_to "Cancel", "#", class: "btn-cancel-comment", role: "button" %>
   </div>
 

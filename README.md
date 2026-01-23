@@ -1,24 +1,37 @@
-# README
+# Tech Forum – Ruby on Rails Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple and modern discussion forum built with **Ruby on Rails**.  
+The application allows users to create posts, comment on discussions, and manage content based on permissions.
 
-Things you may want to cover:
+The project was created as a learning and portfolio project.
 
-* Ruby version
+---
 
-* System dependencies
+## Features
 
-* Configuration
+- User authentication (login / logout)
+- Create, edit and delete posts
+- Add comments to posts
+- Edit and delete own comments
+- Admin privileges (edit/delete any content)
+- Image upload for posts
+- Rich text editor for posts and comments
+- Responsive and clean UI design
 
-* Database creation
+---
 
-* Database initialization
+## 🖼 Screenshots
 
-* How to run the test suite
+### Homepage – Posts List
+![Homepage](app/assets/images/screenshots/main-page.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Single Post with Comments
+![Post View](app/assets/images/screenshots/sims-post-1.png)
+![Post View](app/assets/images/screenshots/sims-post-2.png)
+![Post View](app/assets/images/screenshots/post-adding-comment.png)
 
-* Deployment instructions
+### Create / Edit Post Form
+![Post Form](app/assets/images/screenshots/creating-post.png)
 
-* ...
+### Login Page
+![Login](app/assets/images/screenshots/login-page.png)
