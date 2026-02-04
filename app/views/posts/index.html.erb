@@ -21,7 +21,11 @@
                     </div>
 
                     <p class="post-meta">
-                        by <span class="author"><%= post.user.username %></span> - <%= time_ago_in_words(post.created_at) %> ago
+                        by <span class="author">
+                        <a href="/users/<%= post.user.id %>">
+                            <%= post.user.username %>
+                        </a>
+                        </span> - <%= time_ago_in_words(post.created_at) %> ago
                     </p>
 
                     <div class="post-footer">

@@ -1,18 +1,65 @@
-<h3><%= @user.username %></h3>
+<section class="content-grid">
 
-<div> Member since <%= @user.created_at.strftime("%d.%m.%Y") %> </div>
+    <div class="user-profile-section">
+        
+        <section class="user-profile">
+            <div class="post-card">
+                <h2><%= @user.username %></h2>
 
-<div>Author of <%= @posts.count %>
+                <div>
+                    <% if @user.privileged_user %>
+                        <span class="profile-type">Forum Administrator</span>
+                    <% else %>
+                        <span class="profile-type">Forum User</span>
+                    <% end %>
 
-<% if @posts.count > 1 %>
-    posts
-<% else %>
-    post
-<% end %>
-</div>
+                    <p class=section-divider"></p>
 
-<div>List of posts</div>
+                    <p class="profile-info"> Member since: <strong><%= @user.created_at.strftime("%d.%m.%Y") %></strong> </p>
+                    
+                    <p class="profile-info">
+                        Author of <strong><%= @posts.count %></strong>
 
-<% @posts.each do |post| %>
-    <h3><%= post.title %></h3>
-<% end %>
+                        <% if @posts.count > 1 %>
+                            posts
+                        <% else %>
+                            post
+                        <% end %>
+                    </p>
+                    <br>
+                </div>
+            
+            </div>
+        </section>
+    </div>
+
+    <div class="section-divider-y"></div>
+
+    <div class="user-posts-section">
+        <h2>List of posts:</h2>
+
+        <div class="post-list">
+        <% @posts.each do |post| %>
+            <div class="post-card">
+                <div class="post-header">
+                    <a href="/posts/<%= post.id %>">
+                        <h3><%= post.title %></h3>
+                    </a>
+                </div>
+
+                <p class="post-meta">
+                    Created: <%= time_ago_in_words(post.created_at) %> ago
+                </p>
+
+                <div class="post-footer">
+                    <span class="comments-count"> 
+                        &#128172; <%= post.comments.count %>
+                    </span>
+                </div>
+            </div>
+        <% end %>
+        </div>
+
+    </div>
+
+</section>
