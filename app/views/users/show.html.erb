@@ -1,0 +1,18 @@
+<h3><%= @user.username %></h3>
+
+<div> Member since <%= @user.created_at.strftime("%d.%m.%Y") %> </div>
+
+<div>Author of <%= @posts.count %>
+
+<% if @posts.count > 1 %>
+    posts
+<% else %>
+    post
+<% end %>
+</div>
+
+<div>List of posts</div>
+
+<% @posts.each do |post| %>
+    <h3><%= post.title %></h3>
+<% end %>
