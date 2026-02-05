@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   resources :comments
 
   # CRUD routes for Users
-  resources :users
+  resources :users, only: [:show]
+
+  # Routes for Relationships for create and destroy
+  resources :relationships, only: [:create, :destroy]
 end

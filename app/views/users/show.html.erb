@@ -12,12 +12,12 @@
                     <% else %>
                         <span class="profile-type">Forum User</span>
                     <% end %>
-
-                    <p class=section-divider"></p>
-
-                    <p class="profile-info"> Member since: <strong><%= @user.created_at.strftime("%d.%m.%Y") %></strong> </p>
                     
-                    <p class="profile-info">
+                    <br>
+
+                    <p class="profile-info"> Member since: <strong><%= @user.created_at.strftime("%d.%m.%Y") %></strong>
+                    
+                        <br>
                         Author of <strong><%= @posts.count %></strong>
 
                         <% if @posts.count > 1 %>
@@ -26,7 +26,19 @@
                             post
                         <% end %>
                     </p>
-                    <br>
+
+                    <p>Followers: <%= @followers.count %></p>
+
+                    <div class="follow-button">
+                        <% if authenticated? && Current.user != @user %>
+                            <% if Current.user.followed_users.include?(@user) %>
+                                <%= button_to "Unfollow", relationship_path(Current.user.active_relationships.find_by(followed_id: @user.id)), method: :delete, class: "btn-secondary" %>
+                            <% else %>
+                                <%= button_to "Follow", relationships_path(relationship: { followed_id: @user.id }), method: :post, class: "btn-primary" %>
+                            <% end %>
+                        <% end %>
+                    </div>
+
                 </div>
             
             </div>

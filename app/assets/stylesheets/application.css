@@ -1,4 +1,4 @@
-{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -45,13 +45,3 @@ body {
   margin: 0 auto;
   padding: 32px;
 }
-
-
-/* Importing styles from other CSS files */
-@import "auth.css";
-@import "navbar.css";
-@import "main_page.css";
-@import "post.css";
-@import "post_form.css";
-@import "comment_form.css";
-@import "user_profile.css";

@@ -1,11 +1,19 @@
 /* Styles for login page */
 
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 1rem;
+}
+
 .auth-card {
   background: #fff;
   border-radius: 12px;
   padding: 2rem;
   max-width: 400px;
-  margin: 4rem auto;
+  width: 100%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   text-align: center;
 }
@@ -36,7 +44,7 @@
 /* Login buttons */
 .auth-card .btn-login {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 8px;
   border: none;
   background: #6366f1;
@@ -44,7 +52,10 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
 }
 
 .auth-card .btn-login:hover {

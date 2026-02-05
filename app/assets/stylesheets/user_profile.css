@@ -26,7 +26,7 @@
 
 .profile-info {
     font-size: 1rem;
-    margin: 0;
+    margin: 10px 0;
 }
 
 /* User posts section */
@@ -41,4 +41,8 @@
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 0;
+}
+
+.follow-button {
+  margin: 1.5rem 0 0 0;
 }
