@@ -13,11 +13,11 @@
                         <span class="profile-type">Forum User</span>
                     <% end %>
                     
-                    <p></p>
+                    <br>
 
-                    <p class="profile-info"> Member since: <strong><%= @user.created_at.strftime("%d.%m.%Y") %></strong> </p>
+                    <p class="profile-info"> Member since: <strong><%= @user.created_at.strftime("%d.%m.%Y") %></strong>
                     
-                    <p class="profile-info">
+                        <br>
                         Author of <strong><%= @posts.count %></strong>
 
                         <% if @posts.count > 1 %>
