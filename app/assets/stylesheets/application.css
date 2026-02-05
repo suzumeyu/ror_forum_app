@@ -48,9 +48,10 @@ body {
 
 
 /* Importing styles from other CSS files */
-@import "auth.css"
-@import "navbar.css"
-@import "main_page.css"
-@import "post.css"
-@import "post_form.css"
-@import "comment_form.css"
+@import "auth.css";
+@import "navbar.css";
+@import "main_page.css";
+@import "post.css";
+@import "post_form.css";
+@import "comment_form.css";
+@import "user_profile.css";

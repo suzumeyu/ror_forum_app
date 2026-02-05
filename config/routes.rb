@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   # CRUD routes for Comments
   resources :comments
+
+  # CRUD routes for Users
+  resources :users
 end

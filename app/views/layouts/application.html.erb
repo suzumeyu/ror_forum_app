@@ -31,7 +31,12 @@
           <div class="navbar-right">
             <% if authenticated? %>
               <span class="nav-hello">
-                Hello <strong><%= Current.user.username %></strong>!
+                Hello 
+                <strong>
+                  <a href="/users/<%= Current.user.id %>">
+                    <%= Current.user.username %>
+                  </a>
+                </strong>!
               </span>
               <%= button_to "Log out", session_path, method: :delete, class: "btn-primary" %>
             <% else %>
