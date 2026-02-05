@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  # Empty method because here is called before_action
   def show
     @comments = @post.comments.includes(:user)
   end

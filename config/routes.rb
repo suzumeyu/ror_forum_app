@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   # CRUD routes for Users
   resources :users
+
+  # CRUD routes for Relationships
+  resources :relationships
 end
