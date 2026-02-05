@@ -5,11 +5,7 @@ class RelationshipsController < ApplicationController
     @followed_user = User.find(params[:relationship][:followed_id])
     @relationship = Current.user.active_relationships.new(followed_id: @followed_user.id)
 
-    if @relationship.save
-      flash[:notice] = "Follow Successful"
-    else
-      flash[:notice] = "Follow Unuccessful"
-    end
+    @relationship.save
 
     redirect_to user_path(@followed_user)
   end
@@ -19,7 +15,6 @@ class RelationshipsController < ApplicationController
     @followed_user = @relationship.followed_user
 
     @relationship.destroy
-    flash[:notice] = "Unfollowed"
 
     redirect_to user_path(@followed_user)
   end
